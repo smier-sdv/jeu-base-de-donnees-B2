@@ -50,19 +50,3 @@ enemy_list = {
     }
 
 #create_character(personnages)
-
-
-# def gameover():
-    # appelé quand les pv de quelqu'un dans l'équipe sont à 0
-
-
-def attack(attaquant, victime):
-    """fonction qui gère les attaques"""
-    # utiliser la fonction quand attaquant attaque:
-    # si victime.pv - attaquant.atk >= 0:
-        # victime.pv -= attaquant.atk
-        # si victime.pv == 0:
-            # signaler que les pv de la victime sont à 0
-    # sinon
-        # signaler que les pv de la victime sont à 0
-    return
