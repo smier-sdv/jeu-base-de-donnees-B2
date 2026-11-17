@@ -28,7 +28,8 @@ running = True
 
 # Fonction gestion du choix de l'utilisateur    prend en paramètre la fonction d'affichage du menu de base
 # si choix == 1:
-    # Lancer le premier choix de la liste options
+    # initialisers le nombre de vagues complétées = 0
+    # Lancer le jeu
 # si choix == 2: 
     # Lancer le 2ème choix
 # même chose pour d'autres choix possibles
