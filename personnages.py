@@ -14,13 +14,85 @@ class Character:
     # retourner ce nouvel objet Character
 
 #def create_character(dico,nom):
-    #
+    # là ça marche pour un dictionnaire mais pour la bdd ça sera surement différent
     #name = dico[nom][0]
     #pv = dico[nom][1]["PV"]
     #atk = dico[nom][1]["ATK"]
     #chara = Character(name,pv,atk)
     #return chara
 
+
+def afficher_options_numérotées(options):
+    # pour chaque option dans enumerate(options, start=1)
+    for option,i in enumerate(options, start=1):
+        print(f"{i}. {option}")
+
+
+def récupérer_choix_utilisateur(options):
+    """Affiche les choix possibles et récupère le choix de l'utilisateur jusqu'à obtenir un résultat valide"""
+    # tant que infini
+    while True:
+        # afficher options numérotées 
+        afficher_options_numérotées(options)
+        # récupérer le choix de l'utilisateur en demandant d'entrer un nombre entier entre le maximum et le minimum 
+        choix = input(f"Veuillez entrer un nombre entier entre 0 et {len(options)}")
+        # vérifier si le choix est un nombre
+        if choix.isdigit():
+            # vérifier si c'est un int
+            if int(choix).is_integer():
+                # vérifier si le choix est entre le minimum et le maximum:
+                if int(choix) > 0 and int(choix) <= len(options):
+                    # retourner le choix
+                    return choix
+
+
+def est_équipe_complète(equipe):
+    # si longueur de équipe égale à 3
+    if len(equipe) == 3:
+        return True
+    return False
+
+
+def créer_équipe(liste_personnages_db):
+    # créer un nouveau dictionnaire pour l'équipe
+    equipe = []
+    # tant que l'équipe n'est pas complète:
+    while not est_équipe_complète(equipe):
+        # déterminer la liste des personnages disponibles
+        personnages_disponibles = determiner_personnages_disponibles(liste_personnages_db,equipe)
+        # construire la liste des options à afficher disponibles
+        options_affichables = construire_options_affichables(personnages_disponibles)
+        # récupérer un choix valide
+        choix = récupérer_choix_utilisateur(options_affichables)
+        # ajouter le personnage choisi à l'équipe index = choix -1
+        equipe.append(personnages_disponibles[choix-1])
+    # retourner l'équipe
+    return equipe
+
+
+# construire la liste des options à afficher disponibles
+def construire_options_affichables(personnages_disponibles):
+    # créer une liste options
+    options = []
+    # pour chaque personnage dans personnages_disponibles:
+    for personnage in personnages_disponibles:
+        # ajouter à la liste : f"{personnage["nom"]} - ATK : {personnage["ATK"]}- DEF : {personnage["DEF"]}"
+        options.append(f"{personnage["nom"]} - ATK : {personnage["ATK"]}- DEF : {personnage["DEF"]}")
+    # retourner la liste d'options
+    return options
+
+
+def determiner_personnages_disponibles(liste_personnages_db, equipe):
+    # créer la liste des personnages disponibles
+    personnages_disponibles = []
+    # pour chaque personnage dans la liste des personnages de la DB 
+    for personnage in liste_personnages_db:
+        # si le personnage n'est pas dans l'équipe 
+        if personnage not in equipe:
+            # l'ajouter à la liste des personnages disponibles
+            personnages_disponibles.append(personnage)
+    # renvoyer la liste des personnages disponibles
+    return personnages_disponibles
 
 
 personnages = {

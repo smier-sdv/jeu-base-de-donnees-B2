@@ -1,43 +1,41 @@
 from jeu import *
+from db_init import *
 
 # variable running comme condition de boucle du jeu
 running = True
 
 # Fonction d'affichage du menu
-    # afficher menu principal au lancement du jeu
-    # sélection entre plusieurs options en utilisant des nombres
-    # tant que running:
-        # afficher les options numérotées
-            # pour chaque option dans enumerate(options, start=1)
-                # print(f"{i}. {option}")
-        # demander un choix à l'utilisateur
-        # appel de la fonction de vérification de validité du choix
-        # si le choix est valide:
-            # retourner le choix valide converti en int parce que sinon par défaut un input ça fait un string : int(choix)
-        # afficher un message d'erreur
+def menu_principal():
+    # créer une liste d'options
+    options = ["Lancer le jeu", "Voir le classement", "Quitter"]
+    # afficher menu principal et récupérer un choix valide de l'utilisateur
+    choix = récupérer_choix_utilisateur(options)
+    # si choix == 1:
+    if choix == 1:
+        # Lancer option 1, le jeu avec gameplay_loop()
+        ...# gameplay_loop()
+    # si choix == 2: 
+    if choix == 2:
+        # Lancer option 2, le classement
+        classement()
+    # si choix == 3:
+    if choix == 3:
+        # Lancer l'option 3, running = False
+        running = False
 
 
-# fonction de vérification de la validité du choix
-    # si le choix n'est pas isdigit()
-        # retourner False
-    # vérifier ou convertir un nombre en entier
-    # si le choix est inférieur au minimum ou supérieur au maximum:
-        # retourner False
-    # retourner True
+# On affiche le classement
+def classement():
+    # On prend les 3 meilleurs scores de la bdd
+    # si on n'a pas au moins 3 scores, on affiche " " à la place
+    # On affiche les 3 derniers scores de la bdd
+    ...
 
 
-# Fonction gestion du choix de l'utilisateur    prend en paramètre la fonction d'affichage du menu de base ou simplement un nombre int
-# si choix == 1:
-    # initialisers le nombre de vagues complétées = 0
-    # Lancer le jeu
-# si choix == 2: 
-    # Lancer le classement
-# si choix == 3:
-    # running = False
-# même chose pour d'autres choix possibles
-
-
-
-# def main ():
-    # On appelle d'abord le menu qui nous rend le choix valide
-    # On appelle fonction de gestion du choix de l'utilisateur
+def main ():
+    # Tant que running est True
+    while running:
+        # On appelle le menu qui nous permet de choisir une option
+        menu_principal()
+        # On affiche le dernier score et le classement
+        classement()
