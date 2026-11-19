@@ -14,11 +14,14 @@ def menu_principal():
     if choix == 1:
         # Lancer option 1, le jeu avec gameplay_loop()
         jeu = Jeu()
-        jeu.gameplay_loop()
+        score = jeu.gameplay_loop()
+        print(f"Score de la partie : {score}")
     # si choix == 2: 
     if choix == 2:
         # Lancer option 2, le classement
-        classement()
+        #classement()
+        print("Classement en cours de construction")
+        return True
     # si choix == 3:
     if choix == 3:
         # Lancer l'option 3 arrêter le jeu
@@ -39,7 +42,8 @@ def main ():
     while running:
         # On appelle le menu qui nous permet de choisir une option
         running = menu_principal()
+        # print(running)
         # On affiche le dernier score et le classement
-        classement()
+        # classement()
 
 main()
