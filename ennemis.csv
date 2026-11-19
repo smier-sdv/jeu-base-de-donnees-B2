@@ -1,4 +1,5 @@
-﻿Gobelin,50,10,5
+﻿NOM,PV,ATK,DEF
+Gobelin,50,10,5
 Orc,120,20,8
 Dragon,200,30,20
 Zombie,70,12,6

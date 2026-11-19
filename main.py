@@ -1,5 +1,4 @@
 from jeu import *
-from db_init import *
 
 # variable running comme condition de boucle du jeu
 running = True
@@ -10,18 +9,20 @@ def menu_principal():
     options = ["Lancer le jeu", "Voir le classement", "Quitter"]
     # afficher menu principal et récupérer un choix valide de l'utilisateur
     choix = récupérer_choix_utilisateur(options)
+    #print(f"choix récupéré : {choix}")
     # si choix == 1:
     if choix == 1:
         # Lancer option 1, le jeu avec gameplay_loop()
-        ...# gameplay_loop()
+        jeu = Jeu()
+        jeu.gameplay_loop()
     # si choix == 2: 
     if choix == 2:
         # Lancer option 2, le classement
         classement()
     # si choix == 3:
     if choix == 3:
-        # Lancer l'option 3, running = False
-        running = False
+        # Lancer l'option 3 arrêter le jeu
+        return False
 
 
 # On affiche le classement
@@ -34,8 +35,11 @@ def classement():
 
 def main ():
     # Tant que running est True
+    running = True
     while running:
         # On appelle le menu qui nous permet de choisir une option
-        menu_principal()
+        running = menu_principal()
         # On affiche le dernier score et le classement
         classement()
+
+main()

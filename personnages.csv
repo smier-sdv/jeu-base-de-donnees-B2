@@ -1,4 +1,5 @@
-﻿Guerrier,100,15,10
+NOM,PV,ATK,DEF
+Guerrier,100,15,10
 Mage,80,20,5
 Archer,90,18,7
 Voleur,85, 22, 8
