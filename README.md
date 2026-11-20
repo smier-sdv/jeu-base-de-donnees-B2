@@ -35,4 +35,4 @@ Une fois que toute votre équipe a été vaincue, on affiche le nombre de vagues
 
 Enfin on affiche le classement actuel des 3 meilleurs scores.
 
-On est renvoyé au menu principal et on peut relancer une partie sans fermer et rouvrir le jeu
+On est renvoyé au menu principal et on peut relancer une partie sans fermer et rouvrir le jeu.
