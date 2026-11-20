@@ -124,7 +124,10 @@ class Jeu:
 
     def récupérer_pseudo(self):
         # On demande un pseudo au joueur
-        pseudo = input("Veuillez entrer votre nom : ")
+        pseudo = ""
+        # On demande le pseudo tant que le nom n'est pas d'une longueur entre 1 et 20 inclus
+        while len(pseudo) > 20 or len(pseudo)<=0:
+            pseudo = input("Veuillez entrer votre nom : ")
         return pseudo
 
 
