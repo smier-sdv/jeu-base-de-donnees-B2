@@ -34,3 +34,5 @@ Une fois l'ennemi battu, on passe à la vague suivante et le jeu envoie un nouve
 Une fois que toute votre équipe a été vaincue, on affiche le nombre de vagues que vous avez terminé et on l'envoie dans la base de donnée avec votre pseudo.
 
 Enfin on affiche le classement actuel des 3 meilleurs scores.
+
+On est renvoyé au menu principal et on peut relancer une partie sans fermer et rouvrir le jeu
